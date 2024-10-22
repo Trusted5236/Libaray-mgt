@@ -17,6 +17,8 @@ const bookISBN = document.getElementById("isbn")
 const bookStatus = document.getElementById("status")
 const bookDate = document.getElementById("date")
 const tableBody = document.getElementById("bookBody")
+const search = document.getElementById("search")
+const searchIcon = document.getElementById("search-icon")
 
 
 function displayForm(){
@@ -263,3 +265,102 @@ function editFun(ID){
         }
     })
 }
+
+    search.addEventListener("input", ()=>{
+        const searchValue = search.value.toLowerCase()
+        const filteredArray = arrayForm.filter((item)=>{
+            return(
+                item.authorObj.toLowerCase().includes(searchValue) ||
+                item.titleObj.toLowerCase().includes(searchValue) ||
+                item.pubObj.toLowerCase().includes(Number(searchValue)) ||
+                item.isbnObj.toLowerCase().includes(Number(searchValue)) ||
+                item.statusObj.toLowerCase().includes(searchValue) ||
+                item.dateObj.toLowerCase().includes(searchValue) 
+            )
+        })
+        displayArray(filteredArray)
+    })
+    
+ function  displayArray(filteredArray){
+    tableBody.innerHTML = ''
+    filteredArray.forEach((item, index)=>{
+        let tableRow = document.createElement("tr")
+        tableRow.setAttribute("id", `${index}`)
+        tableRow.classList.add("return")
+
+       
+
+        let authorTd = document.createElement("td")
+        authorTd.textContent = item.authorObj
+  
+
+        let titleTd = document.createElement("td")
+        titleTd.textContent = item.titleObj
+
+        let pubTd = document.createElement("td")
+        pubTd.textContent = item.pubObj
+
+        let isbnTd = document.createElement("td")
+        isbnTd.textContent = item.isbnObj
+
+        let statusTd = document.createElement("td")
+        statusTd.textContent = item.statusObj
+
+        let dateTd = document.createElement("td")
+        dateTd.textContent = item.dateObj
+
+        let iconsDiv = document.createElement("div")
+        iconsDiv.setAttribute("class", "icons-div")
+
+        let trashIcon = document.createElement("i")
+        trashIcon.setAttribute("class", "fa fa-trash")
+        trashIcon.setAttribute("aria-hidden", "true")
+        trashIcon.setAttribute("data-action", "delete")
+
+        let editIcon = document.createElement("i")
+        editIcon.setAttribute("class", "fa fa-pencil")
+        editIcon.setAttribute("aria-hidden", "true")
+        editIcon.setAttribute("data-action", "edit")
+
+        iconsDiv.append(trashIcon, editIcon)
+
+       function divIcons(){
+        iconsDiv.addEventListener("click", (event)=>{
+
+            let userTarget = event.target
+            let parentElement = userTarget.parentElement.parentElement
+            let updatedParentElement = parentElement.id
+           
+           
+           
+           if(!parentElement.classList.contains("return")){
+               return
+           }
+           
+           let ID = Number(updatedParentElement)
+           let check = userTarget.dataset.action
+           
+           if(check === "delete"){
+            deleteFun(ID)
+           }
+
+           if(check === "edit"){
+            editFun(ID)
+           }
+           
+           console.log(userTarget)
+           console.log(parentElement)
+           console.log(ID)
+           console.log(check)
+
+
+        })
+       }
+
+       divIcons()
+
+        tableRow.append(titleTd, authorTd, pubTd, isbnTd, statusTd, dateTd, iconsDiv)
+
+        tableBody.append(tableRow)
+    })
+ }

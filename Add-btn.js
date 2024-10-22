@@ -20,6 +20,7 @@ function addBtn(){
     let searchIcon = document.createElement("i")
     searchIcon.setAttribute("class", "fa fa-search")
     searchIcon.setAttribute("aria-hidden", "true")
+    searchIcon.setAttribute("id", "search-icon")
 
     let btnAdd = document.createElement("div")
     btnAdd.setAttribute("class", "add-btn")
