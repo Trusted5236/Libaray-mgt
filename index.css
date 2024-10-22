@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter Tight", sans-serif;
+}
+
+:root{
+    --background-color: #5e4447;
+    --color1: #55656b;
+    --color2: #ab7878;
+    --color3: #c5ab9d;
+    --color4: #ecddae;
+    --color5: #f8f8f8;
+    --overlay-color: rgb(236, 221, 174, 0.5);
+}
+
+#body-cont{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color5);
+}
+
+.header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color3);
+    padding: 0 2rem;
+}
+
+.logo{
+width: fit-content;
+height: auto;
+}
+
+.logo > img{
+    width: 5rem;
+}
+
+.search-bar{
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.search-bar > input{
+    width: 90%;
+    padding: 0.7rem 0.5rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    outline: none;
+    border: none;
+    background-color: var(--color5);
+}
+
+.search-bar > i{
+    background-color: var(--color5);
+   width: 10%;
+   padding: 0.7rem 0;
+   border-radius: 0 0.5rem 0.5rem 0;
+   cursor: pointer;
+   transition: font-size 0.5s ease-in-out;
+}
+
+.search-bar > i:hover{
+    font-size: large;
+}
+
+.add-btn{
+    width: fit-content;
+    height: auto;
+}
+
+.add-btn > button{
+    width: 100%;
+    padding: 0.7rem 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    background-color: var(--color4);
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.5s ease-in-out;
+}
+
+.add-btn > button:hover{
+   transform: scaleX(0.95);
+}
+
+
+.formDiv{
+    width: 100%;
+    background-color: var(--overlay-color);
+    position: absolute;
+    z-index: 1;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+#form{
+    width: 50%;
+    height: auto;
+    background-color: var(--color4);
+    border-radius: 1.5rem;
+}
+
+
+.inputs{
+    display:  flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    height: auto;
+}
+
+.inputs > input{
+    padding: 1rem;
+    border-radius: 0.2rem;
+    border: none;
+    outline: none;
+    margin: 0.2rem 0;
+    background-color: var(--color5);
+    font-size: medium;
+}
+
+.formBtn{
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+
+.formBtn > button{
+    padding: 1rem;
+    width: 100%;
+    font-size: large;
+    font-weight: bold;
+    background-color: var(--color3);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    transition: transform 0.5s ease-in-out;
+}
+
+.formBtn > button:hover{
+    transform: scaleX(0.95);
+ }
+
+.close-icon{
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-icon > i{
+    cursor: pointer;
+}
+
+#bookTable{
+    border: 1px solid;
+    margin-top: 1rem; 
+    border-collapse: collapse;
+    background-color: var(--color5); 
+    
+}
+
+#tHead, th{
+    background-color: var(--color3);
+    border: 1px solid;
+}
+
+#bookBody, td{
+    border: 1px solid;
+    align-items: start;
+    padding: 1rem;
+    background-color: var(--color4);
+}
+
+.icons-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 1.6rem;
+    border-bottom: 1px solid;
+    column-gap: 1.5rem;
+}
+
+.fa{
+    color: var(--color2);
+}
